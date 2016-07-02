@@ -1,24 +1,32 @@
 import Vue from 'vue'
 import Electron from 'vue-electron'
 import Resource from 'vue-resource'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 
 import App from './App'
+import Firebase from './plugins/firebase'
 import routes from './routes'
 
 Vue.use(Electron)
 Vue.use(Resource)
-Vue.use(Router)
+Vue.use(VueRouter)
+Vue.use(Firebase)
+
 Vue.config.debug = true
 
-const router = new Router()
+const router = new VueRouter()
 
-router.map(routes)
-router.beforeEach(() => {
-  window.scrollTo(0, 0)
-})
-router.redirect({
-  '*': '/'
-})
-
-router.start(App, 'app')
+router
+  .map(routes)
+  .beforeEach(() => {
+    window.scrollTo(0, 0)
+  })
+  .afterEach(function (transition) {
+    if (document.getElementById('drawer').classList.contains('is-visible')) {
+      document.querySelector('.mdl-layout').MaterialLayout.drawerToggleHandler_()
+    }
+  })
+  .redirect({
+    '*': '/'
+  })
+  .start(App, 'app')
