@@ -11,8 +11,13 @@
       }
       #container {
         display: flex;
-        height: 400px;
+        height: 100%;
         overflow: hidden;
+      }
+      #dragger {
+        background-color: ghostwhite;
+        height: 20px;
+        -webkit-app-region: drag;
       }
       body {
         margin: 0;
@@ -29,6 +34,7 @@
     </style>
   </head>
   <body>
+    <div id="dragger"></div>
     <div id="container"></div>
   </body>
 </html>

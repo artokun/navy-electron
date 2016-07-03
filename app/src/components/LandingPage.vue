@@ -27,15 +27,16 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: calc(100vh - 56px);
+    flex-wrap: wrap;
   }
   .demo-card-square.mdl-card {
     width: 200px;
     height: 320px;
+    margin: 15px 5px;
   }
   .demo-card-square > .mdl-card__title {
     color: #fff;
     background:
-      url('http://placekitten.com/320/320') bottom right 15% no-repeat #46B6AC;
+      url('http://placekitten.com/320/320') bottom left 15% no-repeat #46B6AC;
   }
 </style>

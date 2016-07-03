@@ -1,6 +1,7 @@
 <template>
   <div class="mdl-layout__drawer" id="drawer">
-    <span class="mdl-layout__title">Navy<strong>App</strong></span>
+    <span class="mdl-layout__title" v-if="!user.name">Menu</span>
+    <span class="mdl-layout__title" v-else>{{ user.name }}</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" v-link="{name: 'foo', params: { userId: 123 }}">Foo</a>
       <a class="mdl-navigation__link" v-link="{name: 'bar', params: { userId: 123 }}">Bar</a>
@@ -12,7 +13,12 @@
 
 <script>
   export default {
-    name: 'drawer'
+    name: 'drawer',
+    vuex: {
+      getters: {
+        user: ({user}) => user
+      }
+    }
   }
 </script>
 

@@ -9,18 +9,12 @@ let config = {
   // Will be used in production builds
   name: 'SoCal Referral Application',
 
-  // Enable electron's devtron devtools extension in development
-  devtron: true,
-
   // Use ESLint (extends `standard`)
   // Further changes can be made in `.eslintrc.js`
   eslint: true,
 
   // webpack-dev-server port
   port: 9080,
-
-  // Enable vue-devtools in development
-  vueDevTools: true,
 
   // electron-packager options
   // Docs: https://simulatedgreg.gitbooks.io/electron-vue/content/docs/building_your_app.html

@@ -6,23 +6,30 @@
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" v-link="{path: '/'}">Home</a>
-        <a class="mdl-navigation__link" v-link="{path: '/'}">Sign In</a>
+        <a class="mdl-navigation__link" href="#" @click.prevent="login" v-if="!user.name">Login</a>
+        <a class="mdl-navigation__link" href="#" @click.prevent="logout" v-else>Logout</a>
       </nav>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-        <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
-          <i class="material-icons">search</i>
-        </label>
-        <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
-        </div>
-      </div>
     </div>
   </header>
 </template>
 
 <script>
   export default {
-    name: 'navigation'
+    name: 'navigation',
+    vuex: {
+      getters: {
+        user: ({user}) => user
+      }
+    },
+    methods: {
+      login () {
+        this.$auth.signIn()
+      },
+      logout () {
+        this.$auth.signOut()
+        this.$router.go('/')
+      }
+    }
   }
 </script>
 

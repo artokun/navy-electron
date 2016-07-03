@@ -1,4 +1,8 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import {} from 'firebase/auth'
+import {} from 'firebase/database'
+
+const provider = new firebase.auth.GoogleAuthProvider()
 
 // Install access to firebase services as global properties
 export default function install (Vue) {
@@ -26,7 +30,6 @@ export default function install (Vue) {
       get () {
         return Object.assign(firebase.auth(), {
           signIn () {
-            let provider = new firebase.auth.GoogleAuthProvider()
             return firebase.auth().signInWithRedirect(provider)
           }
         })
