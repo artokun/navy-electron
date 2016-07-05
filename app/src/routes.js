@@ -1,5 +1,5 @@
 import LandingPage from './components/LandingPage'
-import Foo from './components/Foo'
+import Auth from './components/Auth'
 import Bar from './components/Bar'
 import Fiz from './components/Fiz'
 import Baz from './components/Baz'
@@ -9,9 +9,9 @@ export default {
     component: LandingPage,
     name: 'landing-page'
   },
-  '/foo': {
-    component: Foo,
-    name: 'foo'
+  '/auth': {
+    component: Auth,
+    name: 'auth'
   },
   '/bar/:userId': {
     component: Bar,

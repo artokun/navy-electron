@@ -5,8 +5,8 @@
       <span class="mdl-layout__title">Navy<strong>App</strong></span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" v-link="{path: '/'}">Home</a>
-        <a class="mdl-navigation__link" href="#" @click.prevent="login" v-if="!user.name">Login</a>
+        <a class="mdl-navigation__link" v-if="user" v-link="{path: '/'}">Home</a>
+        <a class="mdl-navigation__link" href="#" @click.prevent="login" v-if="!user">Login</a>
         <a class="mdl-navigation__link" href="#" @click.prevent="logout" v-else>Logout</a>
       </nav>
     </div>
@@ -18,16 +18,16 @@
     name: 'navigation',
     vuex: {
       getters: {
-        user: ({user}) => user
+        user: ({user}) => user.user
       }
     },
     methods: {
       login () {
         this.$auth.signIn()
+        this.$router.go({ name: 'auth' })
       },
       logout () {
         this.$auth.signOut()
-        this.$router.go('/')
       }
     }
   }

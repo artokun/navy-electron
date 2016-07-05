@@ -20,7 +20,13 @@ const router = new VueRouter()
 
 router
   .map(routes)
-  .beforeEach(() => {
+  .beforeEach(transition => {
+    let user = App.store.state.user.user
+    if (transition.to.path !== '/auth') {
+      return user ? transition.next() : transition.redirect('/auth')
+    } else {
+      transition.next()
+    }
     window.scrollTo(0, 0)
   })
   .afterEach(function () {
@@ -33,6 +39,6 @@ router
     }
   })
   .redirect({
-    '*': '/'
+    '*': '/auth'
   })
   .start(App, 'app')
