@@ -21,17 +21,18 @@ const router = new VueRouter()
 router
   .map(routes)
   .beforeEach(transition => {
-    let user = App.store.state.user.user
-    if (transition.to.path !== '/auth') {
-      return user ? transition.next() : transition.redirect('/auth')
-    } else {
-      transition.next()
-    }
-    window.scrollTo(0, 0)
+    // let user = App.store.state.user.user
+    // if (transition.to.path !== '/regist') {
+    //   return user ? transition.next() : transition.redirect('/auth')
+    // } else {
+    //   transition.next()
+    // }
+    // window.scrollTo(0, 0)
+    transition.next()
   })
   .afterEach(function () {
     // reinitialize mdl js components. @componentHandler is global
-    componentHandler.upgradeDom
+    componentHandler.upgradeAllRegistered()
 
     // close drawer on transition
     if (document.getElementById('drawer').classList.contains('is-visible')) {
@@ -39,6 +40,6 @@ router
     }
   })
   .redirect({
-    '*': '/auth'
+    '*': '/'
   })
   .start(App, 'app')

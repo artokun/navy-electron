@@ -3,7 +3,7 @@
     <span class="mdl-layout__title" v-if="!user">Menu</span>
     <span class="mdl-layout__title" v-else>{{ user.displayName }}</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" v-link="{name: 'bar', params: { userId: 123 }}">Bar</a>
+      <a class="mdl-navigation__link" v-link="{name: 'registration'}">Register</a>
       <a class="mdl-navigation__link" v-link="{path: '/fiz'}">Fiz</a>
       <a class="mdl-navigation__link" v-link="{path: '/baz'}">Baz</a>
     </nav>
