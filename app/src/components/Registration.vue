@@ -88,6 +88,7 @@
             this.pollForRedirect(user).then(
               success => {
                 this.$parent.SET_USER(user)
+                this.$notify(`Verification Code has been validated for ${this.nameWithRank}`)
                 this.$router.go({ name: 'landing-page' })
               },
               failure => {
@@ -106,13 +107,12 @@
           let counter = 1
           let pollingInterval = setInterval(() => {
             user.reload()
-            console.debug('emailVerified? ' + this.$auth.currentUser.emailVerified, counter)
             if (this.$auth.currentUser.emailVerified) {
               clearInterval(pollingInterval)
               resolve('success')
             }
             counter += 1
-            if (counter >= 30) {
+            if (counter >= 120) {
               clearInterval(pollingInterval)
               reject('failure')
             }
