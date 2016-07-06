@@ -85,9 +85,15 @@
           user.sendEmailVerification().then(() => {
             this.$notify(`Verification Code has been sent to ${this.email}`)
             this.verificationEmailSent = true
-            this.pollForRedirect(user).then((err, data) => {
-              console.debug('from promise', err, data)
-            })
+            this.pollForRedirect(user).then(
+              success => {
+                this.$parent.SET_USER(user)
+                this.$router.go({ name: 'landing-page' })
+              },
+              failure => {
+                this.$router.go({ name: 'login' })
+              }
+            )
           }).catch(error => {
             Vue.set(this.error, 'verification', error.message)
           })
