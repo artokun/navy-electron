@@ -6,6 +6,7 @@
       <router-view></router-view>
     </main>
     <footer-view></footer-view>
+    <snackbar></snackbar>
   </div>
 </template>
 
@@ -13,6 +14,7 @@
   import Navigation from './components/Navigation'
   import Drawer from './components/Drawer'
   import FooterView from './components/FooterView'
+  import Snackbar from './components/Snackbar'
   import store from 'src/vuex/store'
   require('./plugins/material.min.js')
 
@@ -22,21 +24,29 @@
       actions: {
         SET_USER: ({dispatch}, user) => dispatch('SET_USER', user),
         REMOVE_USER: ({dispatch}) => dispatch('REMOVE_USER')
+      },
+      getters: {
+        user: ({user}) => user.user
       }
     },
     components: {
       Navigation,
       Drawer,
-      FooterView
+      FooterView,
+      Snackbar
     },
     ready () {
       this.$auth.onAuthStateChanged(user => {
         if (user) {
-          this.SET_USER(user)
-          this.$router.go('/')
+          if (user.emailVerified) {
+            this.SET_USER(user)
+          }
         } else {
+          if (this.user) {
+            this.$notify('Successfully Logged Out!')
+          }
           this.REMOVE_USER()
-          this.$router.go('/auth')
+          this.$router.go({ name: 'login' })
         }
       })
       window.componentHandler.upgradeAllRegistered()

@@ -18,7 +18,16 @@
 
 <script>
   export default {
-    name: 'landing-page'
+    name: 'landing-page',
+    route: {
+      canActivate ({to, next}) {
+        if (to.auth) {
+          next()
+        } else {
+          this.$notify('you are not authorized')
+        }
+      }
+    }
   }
 </script>
 

@@ -1,5 +1,5 @@
 import LandingPage from './components/LandingPage'
-import Auth from './components/Auth'
+import Login from './components/Login'
 import Registration from './components/Registration'
 import Fiz from './components/Fiz'
 import Baz from './components/Baz'
@@ -7,22 +7,27 @@ import Baz from './components/Baz'
 export default {
   '/': {
     component: LandingPage,
-    name: 'landing-page'
+    name: 'landing-page',
+    auth: true
   },
-  '/auth': {
-    component: Auth,
-    name: 'auth'
+  '/login': {
+    component: Login,
+    name: 'login',
+    auth: false
   },
-  '/registration/': {
+  '/registration': {
     component: Registration,
-    name: 'registration'
+    name: 'registration',
+    auth: false
   },
   '/fiz': {
     component: Fiz,
-    name: 'fiz'
+    name: 'fiz',
+    auth: false
   },
   '/baz': {
     component: Baz,
-    name: 'baz'
+    name: 'baz',
+    auth: true
   }
 }

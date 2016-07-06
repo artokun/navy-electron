@@ -4,6 +4,7 @@ import Vue from 'vue'
 import Electron from 'vue-electron'
 import Resource from 'vue-resource'
 import VueRouter from 'vue-router'
+import Snackbar from 'vue-mdl-snackbar'
 
 import FirebaseConfig from './plugins/firebase'
 import routes from './routes'
@@ -13,6 +14,7 @@ Vue.use(Electron)
 Vue.use(Resource)
 Vue.use(VueRouter)
 Vue.use(FirebaseConfig)
+Vue.use(Snackbar, '#snackbar')
 
 Vue.config.debug = true
 
@@ -20,17 +22,13 @@ const router = new VueRouter()
 
 router
   .map(routes)
-  .beforeEach(transition => {
-    // let user = App.store.state.user.user
-    // if (transition.to.path !== '/regist') {
-    //   return user ? transition.next() : transition.redirect('/auth')
-    // } else {
-    //   transition.next()
-    // }
-    // window.scrollTo(0, 0)
-    transition.next()
+  .beforeEach(() => {
+    window.scrollTo(0, 0)
   })
-  .afterEach(function () {
+  .afterEach(transition => {
+    // tell me where I am
+    console.debug('Successfully navigated to: ' + transition.to.path)
+
     // reinitialize mdl js components. @componentHandler is global
     componentHandler.upgradeAllRegistered()
 
@@ -40,6 +38,6 @@ router
     }
   })
   .redirect({
-    '*': '/'
+    '*': '/login'
   })
   .start(App, 'app')

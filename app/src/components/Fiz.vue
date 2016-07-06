@@ -1,5 +1,7 @@
 <template>
-  <div class="page-content">Fiz</div>
+  <div class="page-content">
+    FIZ
+  </div>
 </template>
 
 <script>

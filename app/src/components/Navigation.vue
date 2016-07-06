@@ -6,7 +6,7 @@
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" v-if="user" v-link="{path: '/'}">Home</a>
-        <a class="mdl-navigation__link" href="#" @click.prevent="login" v-if="!user">Login</a>
+        <a class="mdl-navigation__link" href="#" v-link="{path: '/login'}" v-if="!user">Login</a>
         <a class="mdl-navigation__link" href="#" @click.prevent="logout" v-else>Logout</a>
       </nav>
     </div>
@@ -22,10 +22,6 @@
       }
     },
     methods: {
-      login () {
-        this.$auth.signIn()
-        this.$router.go({ name: 'auth' })
-      },
       logout () {
         this.$auth.signOut()
       }
