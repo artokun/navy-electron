@@ -19,12 +19,22 @@
 <script>
   export default {
     name: 'landing-page',
+    vuex: {
+      getters: {
+        user: ({user}) => user.user
+      }
+    },
     route: {
-      canActivate ({to, next}) {
-        if (to.auth) {
-          next()
+      activate ({to, next, abort}) {
+        if (to.auth && this.user) {
+          if (this.user.emailVerified) {
+            return next()
+          }
+          this.$notify('You are not authorized to view this page')
+          return abort('You are not authorized to view this page')
         } else {
-          this.$notify('you are not authorized')
+          this.$notify('You are not signed in')
+          return abort('You are not signed in')
         }
       }
     }
