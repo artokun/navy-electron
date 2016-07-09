@@ -59,4 +59,8 @@
   .page-content {
     height: calc(100vh - 112px);
   }
+
+  .mdl-layout__content {
+    background: rgba(0,0,0,0.07);
+  }
 </style>

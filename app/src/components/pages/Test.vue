@@ -13,23 +13,11 @@
     </div>
     <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
       <div id="navigation-pane" class="pane">
-        <div class="demo-card-event mdl-card mdl-shadow--2dp">
-          <div class="mdl-card__title mdl-card--expand">
-              Camp Pendleton<span> General Surgery</span><br>
-          </div>
-          <div class="mdl-card__actions mdl-card--border">
-            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-              Hernia
-            </a>
-            <div class="mdl-layout-spacer"></div>
-            <i class="material-icons">event</i>
-          </div>
-        </div>
-        <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card mdl-shadow--2dp" v-for="n in 10">
           <div class="mdl-card__supporting-text">
-            <div class="location">Camp Pendleton</div>
-            <div class="clinic">General Surgery</div>
+            <div class="location-clinic">Camp Pendleton <i class="material-icons">chevron_right</i>General Surgery</div>
             <div class="scope">Hernia</div>
+            <i class="info-icon material-icons">info</i>
           </div>
         </div>
       </div>
@@ -57,9 +45,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .page-content {
-    
-  }
   .mdl-card {
     min-height: inherit;
   }
@@ -74,10 +59,42 @@
       font-size: 30px;
     }
   }
+  .mdl-card {
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    &:hover {
+      transform: translate(3px);
+    }
+  }
+  .location-clinic {
+    font-size: 12px;
+    i {
+      font-size: 17px;
+      line-height: 12px;
+      position: relative;
+      top: 4px;
+      left: -1px;
+      color: rgba(0,0,0,0.3);
+    }
+  }
+  .info-icon {
+    position: absolute;
+    right: 15px;
+    bottom: 14px;
+  }
+  .scope {
+    font-size: 24px;
+    font-weight: 600;
+    color: rgba(0,0,0,.8);
+    padding-top: 6px;
+  }
   #navigation-pane {
     height: calc(100vh - 248px);
     border-right: 1px solid rgba(0,0,0,.15);
     padding: 0 15px;
+    overflow: scroll;
   }
   #mdl-search {
     &.mdl-textfield {
@@ -89,32 +106,5 @@
       text-transform: uppercase;
     }
     width: 100%;
-  }
-
-
-  .demo-card-event.mdl-card {
-    background: #3E4EB8;
-  }
-  .demo-card-event > .mdl-card__actions {
-    border-color: rgba(255, 255, 255, 0.2);
-  }
-  .demo-card-event > .mdl-card__title {
-    align-items: flex-start;
-  }
-  .demo-card-event > .mdl-card__title > h4 {
-    margin-top: 0;
-  }
-  .demo-card-event > .mdl-card__actions {
-    display: flex;
-    box-sizing:border-box;
-    align-items: center;
-  }
-  .demo-card-event > .mdl-card__actions > .material-icons {
-    padding-right: 10px;
-  }
-  .demo-card-event > .mdl-card__title,
-  .demo-card-event > .mdl-card__actions,
-  .demo-card-event > .mdl-card__actions > .mdl-button {
-    color: #fff;
   }
 </style>
