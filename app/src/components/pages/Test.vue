@@ -36,7 +36,56 @@
       <!-- Pane Right - Details -->
       <div class="pane pane__right">
         <div class="pane__content">
-          
+          <h3>Hernia <small>Camp Pendleton / General Surgery</small></h3>
+          <p>If seen by General Surgery in the past year for the same issue, patient is considered an established patient, and a new consult is not required. Send consult back to referring provider and instruct patient to call General Surgery Clinic for follow-up appointment.</p>
+          <!-- <p>
+            <b>Appoint to MTF</b>
+            <ul>
+              <li>ADSM = 14 days  Book/Schedule # 1  All General Surgeons</li>
+              <li>Retired/Dependent= 21 days Book/Schedule with All General Surgeons</li>
+              <li>MAX ATC 28 days ( 28 ATC met if patient offered an appointment with in 28 days, but declines)</li>
+            </ul>
+          </p> -->
+          <h5>Appoint to MTF</h5>
+          <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <tbody>
+              <thead>
+                <tr>
+                  <th class="mdl-data-table__cell--non-numeric">Type</th>
+                  <th class="mdl-data-table__cell--non-numeric">Days</th>
+                  <th class="mdl-data-table__cell--non-numeric">Direction</th>
+                </tr>
+              </thead>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">ADSM</td>
+                <td class="mdl-data-table__cell--non-numeric">14 days</td>
+                <td class="mdl-data-table__cell--non-numeric">Book/Schedule #1 all General Surgeons.</td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Retired/Dependent</td>
+                <td class="mdl-data-table__cell--non-numeric">21 days</td>
+                <td class="mdl-data-table__cell--non-numeric">Book/Schedule with all General Surgeons.</td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">MAX ATC</td>
+                <td class="mdl-data-table__cell--non-numeric">28 days</td>
+                <td class="mdl-data-table__cell--non-numeric">Met if patient offered an appointment within 28 days, but declines.</td>
+              </tr>
+            </tbody>
+          </table>
+          <ul>
+            <li>Document all interactions with patient/phone/voicemail. Example info required: <em>Left VM on cell phone</em></li>
+            <li>After <strong>(3)</strong> contacts with patient on <strong>(3)</strong> separate days return to CP Referral Management, with comment</li>
+            <li>If no appointments within <strong>(28)</strong> ATC days, return referral to CP Referral Management</li>
+          </ul>
+          <h5>Patient Categories Available</h5>
+          <ul>
+            <li>ADSM</li>
+            <li>ADFM</li>
+            <li>RET</li>
+            <li>RETFM</li>
+            <li>PLUS</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -59,14 +108,29 @@
 </script>
 
 <style lang="scss" scoped>
+  // Table
+  .mdl-data-table {
+    td, th {
+      line-height: inherit;
+    }
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-weight: 600;
+    small {
+      font-size: 16px;
+    }
+  }
+
   // Layout
   .pane {
     &-layout {
-      display: flex;
       flex-grow: 1;
     }
 
     &__left {
+      float: left;
       overflow-y: scroll;
       display: flex;
       flex-direction: column;
@@ -77,6 +141,7 @@
     &__right {
       display: flex;
       flex-grow: 1;
+      padding: 0 13px;
     }
 
     &__content {
@@ -90,7 +155,7 @@
     text-transform: uppercase;
     margin: 0px 15px 15px 2px;
     transition: all 0.1s ease-in;
-    min-height: 165px;
+    min-height: 80px;
     cursor: pointer;
     
     &:hover {
@@ -98,9 +163,9 @@
     }
 
     &__title {
-      color: #fff;
-      height: 90px;
-      background: url('//getmdl.io/assets/demos/welcome_card.jpg') center / cover;
+      height: 3px;
+      padding: 0;
+      background: rgb(63, 81, 181);
     }
   }
 
@@ -150,6 +215,7 @@
     position: absolute;
     right: 15px;
     bottom: 14px;
+    color: #3f51b5;
   }
   .scope {
     font-size: 24px;
