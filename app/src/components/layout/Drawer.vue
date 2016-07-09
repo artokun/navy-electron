@@ -4,8 +4,7 @@
     <span class="mdl-layout__title" v-else>{{ user.displayName }}</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" v-if="!user" v-link="{name: 'registration'}">Register</a>
-      <a class="mdl-navigation__link" v-link="{path: '/fiz'}">Fiz</a>
-      <a class="mdl-navigation__link" v-link="{path: '/baz'}">Baz</a>
+      <a class="mdl-navigation__link" v-link="{path: '/test'}">Test</a>
     </nav>
   </div>
 </template>

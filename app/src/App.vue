@@ -11,10 +11,10 @@
 </template>
 
 <script>
-  import Navigation from './components/Navigation'
-  import Drawer from './components/Drawer'
-  import FooterView from './components/FooterView'
-  import Snackbar from './components/Snackbar'
+  import Navigation from './components/layout/Navigation'
+  import Drawer from './components/layout/Drawer'
+  import FooterView from './components/layout/FooterView'
+  import Snackbar from './components/partials/Snackbar'
   import store from 'src/vuex/store'
   require('./plugins/material.min.js')
 
@@ -37,17 +37,14 @@
     },
     ready () {
       this.$auth.onAuthStateChanged(user => {
-        if (user) {
-          if (user.emailVerified) {
-            this.SET_USER(user)
-          }
-        } else {
-          if (this.user) {
-            this.$notify('Successfully Logged Out!')
-          }
-          this.REMOVE_USER()
-          this.$router.go({ name: 'login' })
+        if (user && user.emailVerified) {
+          return this.SET_USER(user)
         }
+        if (this.user) {
+          this.$notify('Successfully Logged Out!')
+        }
+        this.REMOVE_USER()
+        this.$router.go({ name: 'login' })
       })
       window.componentHandler.upgradeAllRegistered()
     }

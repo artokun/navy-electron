@@ -1,13 +1,12 @@
-import LandingPage from './components/LandingPage'
-import Login from './components/Login'
-import Registration from './components/Registration'
-import Fiz from './components/Fiz'
-import Baz from './components/Baz'
+import Locations from './components/pages/Locations'
+import Login from './components/pages/Login'
+import Registration from './components/pages/Registration'
+import Test from './components/pages/Test'
 
 export default {
   '/': {
-    component: LandingPage,
-    name: 'landing-page',
+    component: Locations,
+    name: 'locations',
     auth: true
   },
   '/login': {
@@ -20,14 +19,9 @@ export default {
     name: 'registration',
     auth: false
   },
-  '/fiz': {
-    component: Fiz,
-    name: 'fiz',
+  '/test': {
+    component: Test,
+    name: 'test',
     auth: false
-  },
-  '/baz': {
-    component: Baz,
-    name: 'baz',
-    auth: true
   }
 }

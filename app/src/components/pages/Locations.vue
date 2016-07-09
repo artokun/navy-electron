@@ -18,7 +18,7 @@
 
 <script>
   export default {
-    name: 'landing-page',
+    name: 'Clinics',
     vuex: {
       getters: {
         user: ({user}) => user.user

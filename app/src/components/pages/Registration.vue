@@ -104,7 +104,7 @@
               success => {
                 this.$parent.SET_USER(user)
                 this.$notify(`Verification Code has been validated for ${this.nameWithRank}`)
-                this.$router.go({ name: 'landing-page' })
+                this.$router.go({ name: 'locations' })
               },
               failure => {
                 this.$notify('User not validated in time, redirecting to login')

@@ -51,7 +51,7 @@
       onLogin () {
         this.$auth.signInWithEmailAndPassword(this.email, this.password).then(user => {
           if (user.emailVerified) {
-            this.$router.go({name: 'landing-page'})
+            this.$router.go({name: 'locations'})
             this.$notify(`${user.displayName} has Successfully Logged In!`)
           } else {
             this.$notify(`Please verify your email address at ${user.email}`)
@@ -74,7 +74,7 @@
     compiled () {
       if (this.user) {
         if (this.user.emailVerified) {
-          this.$router.go('landing-page')
+          this.$router.go({name: 'locations'})
         }
       }
     },
