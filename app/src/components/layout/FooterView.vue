@@ -1,14 +1,16 @@
 <template>
   <footer class="mdl-mini-footer">
-  <div class="mdl-mini-footer__left-section">
-    <div class="mdl-logo">NavyApp</div>
-    <ul class="mdl-mini-footer__link-list">
-      <li><a href="#">Help</a></li>
-      <li><a href="#">Privacy & Terms</a></li>
-    </ul>
-  </div>
-  <span class="mdl-mini-footer__version"><strong>Protoype</strong> Version 0.3.1</span>
-</footer>
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">NavyApp</div>
+      <ul class="mdl-mini-footer__link-list">
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Privacy & Terms</a></li>
+      </ul>
+    </div>
+    <div class="mdl-mini-footer__right-section">
+      <div class="mdl-mini-footer__version"><strong>Protoype</strong> Version 0.3.1</div>
+    </div>
+  </footer>
 </template>
 
 <script>
@@ -19,14 +21,9 @@
 
 <style lang="scss" scoped>
   .mdl-mini-footer {
-    padding: 10px 30px;
-    position: relative;
-
+    padding: 9px 16px 20px;
     &__version {
-      position: absolute;
-      width: 160px;
-      right: 0;
-      top: 17px;
+      line-height: 36px;
     }
   }
 </style>

@@ -1,11 +1,16 @@
 <template>
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <!-- Navigation -->
     <navigation></navigation>
+    <!-- Drawer -->
     <drawer></drawer>
+    <!-- Main Content -->
     <main class="mdl-layout__content">
       <router-view></router-view>
     </main>
+    <!-- Footer -->
     <footer-view></footer-view>
+    <!-- Snackbar Notifications -->
     <snackbar></snackbar>
   </div>
 </template>
@@ -55,12 +60,20 @@
   @import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
   @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
   @import url(https://code.getmdl.io/1.1.3/material.indigo-amber.min.css);
-
-  .page-content {
-    height: calc(100vh - 112px);
+  
+  body {
+    font-family: roboto;
   }
 
   .mdl-layout__content {
-    background: rgba(0,0,0,0.07);
+    display: flex;
   }
+
+  .page-content {
+    padding: 10px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+  }
+
 </style>
