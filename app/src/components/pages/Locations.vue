@@ -45,6 +45,7 @@
   .page-content {
     display: flex;
     align-items: center;
+    flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
   }

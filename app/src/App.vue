@@ -60,20 +60,19 @@
   @import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
   @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
   @import url(https://code.getmdl.io/1.1.3/material.indigo-amber.min.css);
-  
+
   body {
     font-family: roboto;
   }
 
   .mdl-layout__content {
-    display: flex;
+    height: 100%;
   }
 
   .page-content {
     padding: 10px;
-    display: flex;
-    flex-grow: 1;
+    box-sizing: border-box;
+    height: 100%;
     flex-direction: column;
   }
-
 </style>

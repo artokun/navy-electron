@@ -17,13 +17,13 @@
         </div>
       </form>
     </div>
-    
+
     <div class="pane-layout">
       <!-- Pane Left - Navigation -->
       <div class="pane pane__left">
         <div class="mdl-card mdl-card mdl-shadow--2dp" v-for="n in 10">
           <div class="mdl-card__title">
-            
+
           </div>
           <div class="mdl-card__supporting-text">
             <div class="location-clinic">Camp Pendleton <i class="material-icons">chevron_right</i>General Surgery</div>
@@ -32,7 +32,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Pane Right - Details -->
       <div class="pane pane__right">
         <div class="pane__content">
@@ -89,7 +89,7 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 </template>
 
@@ -126,22 +126,25 @@
   // Layout
   .pane {
     &-layout {
-      flex-grow: 1;
+      height: 88%;
+      display: flex;
     }
 
     &__left {
       float: left;
-      overflow-y: scroll;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 0;
+      width: 335px;
+      height: 100%;
+      padding: 0 10px;
+      overflow-y: auto;
       border-right: 1px solid rgba(0,0,0,.15);
     }
 
     &__right {
-      display: flex;
-      flex-grow: 1;
-      padding: 0 13px;
+      float: left;
+      width: calc(100vw - 397px);
+      height: 100%;
+      padding: 0 10px;
+      overflow-y: auto;
     }
 
     &__content {
@@ -157,7 +160,7 @@
     transition: all 0.1s ease-in;
     min-height: 80px;
     cursor: pointer;
-    
+
     &:hover {
       transform: translate(3px);
     }
@@ -198,8 +201,8 @@
       }
     }
   }
-  
-  
+
+
   .location-clinic {
     font-size: 12px;
     i {
@@ -229,5 +232,5 @@
     padding: 0 15px;
     overflow: scroll;
   }
-  
+
 </style>
