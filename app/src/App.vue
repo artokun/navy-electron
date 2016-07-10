@@ -48,8 +48,10 @@
         if (this.user) {
           this.$notify('Successfully Logged Out!')
         }
-        this.REMOVE_USER()
-        this.$router.go({ name: 'login' })
+        if (!user) {
+          this.REMOVE_USER()
+          this.$router.go({ name: 'login' })
+        }
       })
       window.componentHandler.upgradeAllRegistered()
     }
