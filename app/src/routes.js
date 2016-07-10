@@ -2,6 +2,7 @@ import Locations from './components/pages/Locations'
 import Login from './components/pages/Login'
 import Registration from './components/pages/Registration'
 import Test from './components/pages/Test'
+import Users from './components/pages/Users'
 
 export default {
   '/': {
@@ -22,6 +23,11 @@ export default {
   '/test': {
     component: Test,
     name: 'test',
+    auth: false
+  },
+  '/users': {
+    component: Users,
+    name: 'users',
     auth: false
   }
 }

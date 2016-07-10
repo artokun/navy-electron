@@ -102,6 +102,8 @@
             this.verificationEmailSent = true
             this.pollForRedirect(user).then(
               success => {
+                let registration = { first_name: this.fName, last_name: this.lName, rank: this.rank }
+                this.createUserProfile(user, registration)
                 this.$parent.SET_USER(user)
                 this.$notify(`Verification Code has been validated for ${this.nameWithRank}`)
                 this.$router.go({ name: 'locations' })
@@ -139,6 +141,15 @@
               reject('failure')
             }
           }, 1000)
+        })
+      },
+      createUserProfile (user, { first_name, last_name, rank }) {
+        this.$database.ref('users/' + user.uid).set({
+          first_name,
+          last_name,
+          rank,
+          isAdmin: false,
+          isBooking: true
         })
       }
     },

@@ -1,5 +1,6 @@
 const state = {
-  user: null
+  user: null,
+  list: []
 }
 
 const mutations = {
@@ -8,6 +9,9 @@ const mutations = {
   },
   'REMOVE_USER' (state) {
     state.user = null
+  },
+  'GET_ALL_USERS' (state, list) {
+    state.list = list
   }
 }
 

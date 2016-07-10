@@ -5,6 +5,7 @@
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" v-if="!user" v-link="{name: 'registration'}">Register</a>
       <a class="mdl-navigation__link" v-link="{path: '/test'}">Test</a>
+      <a class="mdl-navigation__link" v-link="{path: '/users'}">Users</a>
     </nav>
   </div>
 </template>
