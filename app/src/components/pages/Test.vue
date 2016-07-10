@@ -126,8 +126,13 @@
   // Layout
   .pane {
     &-layout {
-      height: 88%;
+      height: calc(100vh - 235px);
       display: flex;
+    }
+    @media (max-width: 1024px) {
+      &-layout {
+        height: calc(100vh - 227px);
+      }
     }
 
     &__left {
