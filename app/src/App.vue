@@ -31,7 +31,7 @@
         REMOVE_USER: ({dispatch}) => dispatch('REMOVE_USER')
       },
       getters: {
-        user: ({user}) => user.user
+        user: ({user}) => user.detail
       }
     },
     components: {
@@ -45,12 +45,12 @@
         if (user && user.emailVerified) {
           return this.SET_USER(user)
         }
-        if (this.user) {
+        if (!user && this.user) {
           this.$notify('Successfully Logged Out!')
         }
         if (!user) {
           this.REMOVE_USER()
-          this.$router.go({ name: 'login' })
+          this.$router.go({ name: 'Login' })
         }
       })
       window.componentHandler.upgradeAllRegistered()

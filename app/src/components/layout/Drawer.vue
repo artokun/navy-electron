@@ -15,7 +15,7 @@
     name: 'drawer',
     vuex: {
       getters: {
-        user: ({user}) => user.user
+        user: ({user}) => user.detail
       }
     }
   }

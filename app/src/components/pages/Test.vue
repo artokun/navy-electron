@@ -98,7 +98,7 @@
     name: 'Clinics',
     vuex: {
       getters: {
-        user: ({user}) => user.user
+        user: ({user}) => user.detail
       }
     },
     ready () {

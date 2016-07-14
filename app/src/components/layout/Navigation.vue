@@ -18,7 +18,7 @@
     name: 'navigation',
     vuex: {
       getters: {
-        user: ({user}) => user.user
+        user: ({user}) => user.detail
       }
     },
     methods: {

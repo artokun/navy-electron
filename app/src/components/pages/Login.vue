@@ -44,14 +44,26 @@
     },
     vuex: {
       getters: {
-        user: ({user}) => user.user
+        user: ({user}) => user.detail
+      }
+    },
+    router: {
+      activate ({ next, redirect }) {
+        if (this.user) {
+          if (this.user.emailVerified) {
+            console.debug('already logged in')
+            redirect({ name: 'Locations' })
+          }
+          this.$notify(`${this.user.displayName} has not validated their email at ${this.user.email}!`)
+        }
+        next()
       }
     },
     methods: {
       onLogin () {
         this.$auth.signInWithEmailAndPassword(this.email, this.password).then(user => {
           if (user.emailVerified) {
-            this.$router.go({name: 'locations'})
+            this.$router.go({name: 'Locations'})
             this.$notify(`${user.displayName} has Successfully Logged In!`)
           } else {
             this.$notify(`Please verify your email address at ${user.email}`)
@@ -69,13 +81,6 @@
       },
       forgotPassword () {
         console.debug('forgot password')
-      }
-    },
-    compiled () {
-      if (this.user) {
-        if (this.user.emailVerified) {
-          this.$router.go({name: 'locations'})
-        }
       }
     },
     ready () {

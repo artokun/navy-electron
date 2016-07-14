@@ -7,12 +7,12 @@ import Users from './components/pages/Users'
 export default {
   '/': {
     component: Locations,
-    name: 'locations',
+    name: 'Locations',
     auth: true
   },
   '/login': {
     component: Login,
-    name: 'login',
+    name: 'Login',
     auth: false
   },
   '/registration': {
@@ -20,9 +20,9 @@ export default {
     name: 'registration',
     auth: false
   },
-  '/test': {
+  '/test/:locationId': {
     component: Test,
-    name: 'test',
+    name: 'Test',
     auth: false
   },
   '/users': {

@@ -25,7 +25,7 @@
         getAllUsers: ({dispatch}, list) => dispatch('GET_ALL_USERS', list)
       },
       getters: {
-        user: ({user}) => user.user,
+        user: ({user}) => user.detail,
         list: ({user}) => user.list
       }
     },

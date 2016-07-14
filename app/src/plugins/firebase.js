@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import {} from 'firebase/auth'
 import {} from 'firebase/database'
+import {} from 'firebase/storage'
 
 const provider = new firebase.auth.GoogleAuthProvider()
 
@@ -24,6 +25,11 @@ export default function install (Vue) {
     $database: {
       get () {
         return firebase.database()
+      }
+    },
+    $storage: {
+      get () {
+        return firebase.storage()
       }
     },
     $auth: {

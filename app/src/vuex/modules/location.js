@@ -4,13 +4,13 @@ const state = {
 }
 
 const mutations = {
-  'SET_USER' (state, user) {
-    state.detail = user
+  'SET_LOCATION' (state, location) {
+    state.detail = location
   },
-  'REMOVE_USER' (state) {
+  'REMOVE_LOCATION' (state) {
     state.detail = null
   },
-  'GET_ALL_USERS' (state, list) {
+  'GET_ALL_LOCATIONS' (state, list) {
     state.list = list
   }
 }
